@@ -19,7 +19,7 @@ def write_to_file(data):
     file = database.write(f'\n{email},{subject},{message}')
 
 def write_to_csv(data):
-  with open('/home/sadilak/database.csv', newline='', mode='a') as database2:
+  with open('database.csv', newline='', mode='a') as database2:
     email = data["email"]
     subject = data["subject"]
     message = data["message"]
@@ -32,7 +32,11 @@ def submit_form():
     if request.method == 'POST':
       try:
         data = request.form.to_dict()
-        write_to_csv(data)
+        
+
+        if request.form['submit_button'] == 'Send Message':
+            write_to_csv(data)
+        
         return redirect('index.html')
       except:
         return data
