@@ -32,8 +32,7 @@ def submit_form():
     if request.method == 'POST':
       try:
         data = request.form.to_dict()
-        #write_to_csv(data)
-        flash('You were successfully logged in')
+        write_to_csv(data)
         return redirect('index.html')
       except:
         return 'did not save to database'
