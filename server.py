@@ -34,8 +34,8 @@ def submit_form():
         data = request.form.to_dict()
         write_to_csv(data)
         return redirect('index.html')
-      except Exception as err:
-        return err
+      except:
+        return data
     else:
       return 'something went wrong. Try again!'
 
