@@ -32,11 +32,7 @@ def submit_form():
     if request.method == 'POST':
       try:
         data = request.form.to_dict()
-        
-
-        if request.form['submit_button'] == 'Send Message':
-            write_to_csv(data)
-        
+        write_to_csv(data)       
         return redirect('index.html')
       except:
         return data
