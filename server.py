@@ -33,7 +33,7 @@ def submit_form():
       try:
         data = request.form.to_dict()
         #write_to_csv(data)
-        #flash('You were successfully logged in')
+        flash('You were successfully logged in')
         return render_template('index.html')
       except:
         return 'did not save to database'
