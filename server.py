@@ -37,8 +37,9 @@ def submit_form():
         message = Markup("<h1>Voila! Platform is ready to used</h1>")
         flash(message)    
         return redirect('index.html')
-      except:
-        return 'did not save to database'
+      except Exception as err:
+        return err
+        #return 'did not save to database'
     else:
       return 'something went wrong. Try again!'
 
