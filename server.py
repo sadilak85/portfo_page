@@ -2,6 +2,8 @@ from flask import Flask, flash, render_template, url_for, request, redirect
 import csv
 
 app = Flask(__name__)
+app.secret_key = 'super secret key'
+app.config['SESSION_TYPE'] = 'filesystem'
 
 @app.route('/')
 def my_home():
