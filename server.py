@@ -1,9 +1,9 @@
-from flask import Flask, flash, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect
 import csv
 
 app = Flask(__name__)
-app.secret_key = 'super secret key'
-app.config['SESSION_TYPE'] = 'filesystem'
+#app.secret_key = 'super secret key'
+#app.config['SESSION_TYPE'] = 'filesystem'
 
 @app.route('/')
 def my_home():
@@ -34,11 +34,9 @@ def submit_form():
       try:
         data = request.form.to_dict()
         write_to_csv(data)
-        flash('You were successfully logged in')     
         return redirect('index.html')
-      except Exception as err:
-        return str(err)
-        #return 'did not save to database'
+      except:
+        return 'did not save to database'
     else:
       return 'something went wrong. Try again!'
 
