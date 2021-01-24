@@ -28,8 +28,6 @@ def write_to_csv(data):
     name = data["name"]
     csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     csv_writer.writerow([email,message,name])
-    return 1
-
 
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
@@ -38,7 +36,7 @@ def submit_form():
         data = request.form.to_dict()
         write_to_csv(data)
         flash('You were successfully logged in')     
-        return 1
+        return 'success!'
       except Exception as err:
         return str(err)
         #return 'did not save to database'
