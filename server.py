@@ -1,6 +1,5 @@
 from flask import Flask, flash, render_template, url_for, request, redirect
 import csv
-import os
 
 app = Flask(__name__)
 
@@ -26,6 +25,7 @@ def write_to_csv(data):
     name = data["name"]
     csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     csv_writer.writerow([email,message,name])
+    return 1
 
 
 @app.route('/submit_form', methods=['POST', 'GET'])
@@ -33,7 +33,8 @@ def submit_form():
     if request.method == 'POST':
       try:
         data = request.form.to_dict()
-        write_to_csv(data)       
+        write_to_csv(data)
+        flash('You were successfully logged in')     
         return redirect('index.html')
       except:
         return 'did not save to database'
