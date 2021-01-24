@@ -1,5 +1,6 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, flash, render_template, url_for, request, redirect
 import csv
+import re
 
 app = Flask(__name__)
 #app.secret_key = 'super secret key'
@@ -25,6 +26,8 @@ def write_to_csv(data):
     email = data["email"]
     message = data["message"]
     name = data["name"]
+    if not re.fullmatch(r"[^@]+@[^@]+\.[^@]+", email):
+      flash("not a valid email")    
     csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     csv_writer.writerow([email,message,name])
 
