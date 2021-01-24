@@ -1,4 +1,4 @@
-from flask import Flask, flash, render_template, url_for, request, redirect, Markup
+from flask import Flask, flash, render_template, url_for, request, redirect
 import csv
 
 app = Flask(__name__)
@@ -34,11 +34,10 @@ def submit_form():
       try:
         data = request.form.to_dict()
         write_to_csv(data)
-        message = Markup("<h1>Voila! Platform is ready to used</h1>")
-        flash(message)    
+        flash('You were successfully logged in')     
         return redirect('index.html')
       except Exception as err:
-        return err
+        return str(err)
         #return 'did not save to database'
     else:
       return 'something went wrong. Try again!'
