@@ -21,10 +21,9 @@ def write_to_file(data):
 
 def write_to_csv(data):
   with open('database.csv', newline='', mode='a') as database2:
-    pass
-#    email = data["email"]
-#    subject = data["subject"]
-#    message = data["message"]
+    email = data["email"]
+    subject = data["subject"]
+    message = data["message"]
 #    csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 #    csv_writer.writerow([email,subject,message])
 
