@@ -37,7 +37,7 @@ def submit_form():
         data = request.form.to_dict()
         write_to_csv(data)
         flash('You were successfully logged in')     
-        return redirect('index.html')
+        return 1
       except Exception as err:
         return str(err)
         #return 'did not save to database'
