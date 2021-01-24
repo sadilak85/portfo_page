@@ -15,9 +15,9 @@ def html_page(page_name):
 def write_to_file(data):
   with open('database.txt', mode='a') as database:
     email = data["email"]
-    subject = data["subject"]
     message = data["message"]
-    file = database.write(f'\n{email},{subject},{message}')
+    name = data["name"]
+    file = database.write(f'\n{email},{message},{name}')
 
 def write_to_csv(data):
   with open('database.csv', newline='', mode='a') as database2:
@@ -25,7 +25,7 @@ def write_to_csv(data):
     message = data["message"]
     name = data["name"]
     csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    csv_writer.writerow([email,subject,message])
+    csv_writer.writerow([email,message,name])
 
 
 @app.route('/submit_form', methods=['POST', 'GET'])
