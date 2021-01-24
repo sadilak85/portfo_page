@@ -4,6 +4,7 @@ import csv
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
+app.debug = True
 
 @app.route('/')
 def my_home():
