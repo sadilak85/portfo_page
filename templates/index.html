@@ -70,19 +70,25 @@
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="submit_form">
+								<form action="submit_form" method="post" class="reveal-content">
 									<div class="fields">
 										<div class="field half">
-											<label for="name">Name</label>
-											<input type="text" name="name" id="name" />
+											<div class="form-group">
+												<label for="name">Name</label>
+												<input type="text" name="name" id="name" />
+											</div>
 										</div>
 										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
+											<div class="form-group">
+												<label for="email">Email</label>
+												<input type="text" name="email" id="email" />
+											</div>
 										</div>
 										<div class="field">
-											<label for="message">Message</label>
-											<textarea name="message" id="message" rows="4"></textarea>
+											<div class="form-group">
+												<label for="message">Message</label>
+												<textarea name="message" id="message" rows="5"></textarea>
+											</div>
 										</div>						
 									</div>
 									<ul class="actions">
@@ -103,8 +109,7 @@
 									{% endblock %}										
 								</form>
 							</article>							
-					</div>		
-		
+					</div>	
 				<!-- Footer -->
 					<footer id="footer">
 				    	<ul class="icons">
