@@ -29,7 +29,7 @@ def write_to_csv(data):
   if not re.fullmatch(r"[^@]+@[^@]+\.[^@]+", email):
     flash("Not a valid email!")
     return
-  elif message = '':
+  elif message == '':
     flash("Enter a text!")
     return   
   with open('database.csv', newline='', mode='a') as database2:
