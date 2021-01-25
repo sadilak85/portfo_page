@@ -2,7 +2,7 @@ from flask import Flask, flash, render_template, url_for, request, redirect
 import csv
 import re
 
-app = Flask(__name__)
+app=Flask(__name__,template_folder='templates')
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
 
