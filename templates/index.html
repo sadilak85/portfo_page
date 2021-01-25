@@ -88,10 +88,6 @@
 											<label for="message">Message</label>
 											<textarea name="message" id="message" rows="4"></textarea>
 										</div>
-										<div class='container'>
-													{% include 'messages.html' %}
-													{% block body %}{% endblock %}
-										</div>
 										{% block content %}
 										<div class="container">
 											{% for message in get_flashed_messages() %}
