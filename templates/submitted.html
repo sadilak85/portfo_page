@@ -11,7 +11,16 @@
 		<noscript><link rel="stylesheet" href="../static/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class=flashes>
+			{% for message in messages %}
+			<li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+		{% endwith %}
+		{% block body %}{% endblock %}
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -96,17 +105,7 @@
 										<li><input type="reset" value="Reset" /></li>
 									</ul>								
 								</form>
-							{% with messages = get_flashed_messages() %}
-							{% if messages %}
-								<ul class=flashes>
-								{% for message in messages %}
-								<li>{{ message }}</li>
-								{% endfor %}
-								</ul>
-							{% endif %}
-							{% endwith %}
-							{% block body %}{% endblock %}
-							</article>						
+							</article>							
 					</div>	
 				<!-- Footer -->
 					<footer id="footer">

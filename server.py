@@ -4,7 +4,7 @@ import re
 
 app = Flask(__name__)
 
-app.secret_key = 'super secret key'
+app.secret_key = 'xdsfslgmsjhotrjkjdfpsdkjfl2343thfhd'
 #app.config['SESSION_TYPE'] = 'filesystem'
 
 @app.route('/')
@@ -41,7 +41,7 @@ def submit_form():
       data = request.form.to_dict()
       write_to_csv(data)
       flash('You were successfully logged in')
-      return redirect(url_for('my_home'))
+      return redirect(url_for('my_home', _anchor="contact"))
     except:
       return 'did not save to database'
   else:
