@@ -4,7 +4,7 @@ import re
 
 app = Flask(__name__)
 
-with open('../app_key.txt', mode='r') as file:
+with open('app_key.txt', mode='r') as file:
   app.secret_key = file.readline().strip()
 #app.config['SESSION_TYPE'] = 'filesystem'
 
