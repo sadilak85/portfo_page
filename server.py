@@ -4,7 +4,8 @@ import re
 
 app = Flask(__name__)
 
-app.secret_key = 'xdsfslgmsjhotrjkjdfpsdkjfl2343thfhd'
+with open('app_key.txt', mode='r') as file:
+  app.secret_key = file.readline().strip()
 #app.config['SESSION_TYPE'] = 'filesystem'
 
 @app.route('/')
