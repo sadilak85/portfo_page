@@ -27,12 +27,15 @@ def write_to_csv(data):
   message = data["message"]
   name = data["name"]
   if not re.fullmatch(r"[^@]+@[^@]+\.[^@]+", email):
-    flash("not a valid email")
+    flash("Not a valid email!")
     return
+  elif message = '':
+    flash("Enter a text!")
+    return   
   with open('database.csv', newline='', mode='a') as database2:
     csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     csv_writer.writerow([email,message,name])
-    flash("ok halt")
+    flash("Thank you for contacting with me;) I will reply your message as soon as possible!")
 
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
@@ -40,8 +43,7 @@ def submit_form():
     try:
       data = request.form.to_dict()
       write_to_csv(data)
-      return render_template('index.html#contact')
-      #return redirect(url_for('my_home', _anchor="contact"))
+      return redirect(url_for('my_home', _anchor="contact"))
     except:
       return 'did not save to database'
   else:
