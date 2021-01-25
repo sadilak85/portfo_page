@@ -106,6 +106,17 @@
 									  {% endif %}
 									{% endwith %}
 									{% block body %}{% endblock %}									
+
+
+									<h1 id="header">{{ message }}</h1>
+									<script>
+										var heading = $("#header");
+										setInterval(function() {
+										  if (heading.style.display == "block") { heading.style.display = "none"; }
+										  else if (heading.style.display == "none") { heading.style.display = "block"; }
+										}, 1000);
+									</script>
+
 									
 								</form>
 							</article>							
