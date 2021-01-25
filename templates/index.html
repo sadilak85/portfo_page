@@ -91,23 +91,11 @@
 											</div>
 										</div>											
 									</div>
-									<button type="submit" class="primary">Send nessage</button>
 									<ul class="actions">
-										<!-- <li><input type="submit" value="Send Message" class="primary" /></li> -->
+										<li><input type="submit" value="Send Message" class="primary" /></li>
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
-									{% block content %}
-									<div class="container">
-										{% for message in get_flashed_messages() %}
-										<div class="alert alert-warning">
-											<button type="button" class="close" data-dismiss="alert">&times;</button>
-											{{ message }}
-										</div>
-										{% endfor %}
-
-										{% block page_content %}{% endblock %}
-									</div>
-									{% endblock %}										
+									
 								</form>
 							</article>							
 					</div>	

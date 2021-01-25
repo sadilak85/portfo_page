@@ -2,9 +2,10 @@ from flask import Flask, flash, render_template, url_for, request, redirect
 import csv
 import re
 
-app=Flask(__name__,template_folder='templates')
-app.secret_key = 'super secret key'
-app.config['SESSION_TYPE'] = 'filesystem'
+app = Flask(__name__)
+
+#app.secret_key = 'super secret key'
+#app.config['SESSION_TYPE'] = 'filesystem'
 
 @app.route('/')
 def my_home():
@@ -39,11 +40,9 @@ def submit_form():
     try:
       data = request.form.to_dict()
       write_to_csv(data)
-      return redirect(url_for('submit_form'))
+      return redirect(url_for('my_home'))
       #return redirect('index.html')
     except:
-      return 'did not save to database'
+      return render_template('index.html', error='did not save to database') 
   else:
-    return 'something went wrong. Try again!'
-
-
+    return render_template('index.html', error='something went wrong. Try again!') 
