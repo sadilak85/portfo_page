@@ -40,6 +40,7 @@ def submit_form():
     try:
       data = request.form.to_dict()
       write_to_csv(data)
+      flash('You were successfully logged in')
       return redirect(url_for('my_home'))
       #return redirect('index.html')
     except:
