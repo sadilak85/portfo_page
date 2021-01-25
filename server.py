@@ -35,8 +35,9 @@ def write_to_csv(data):
   with open('database.csv', newline='', mode='a') as database2:
     csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     csv_writer.writerow([email,message,name])
-    flash("Thank you for contacting with me;) I will reply your message as soon as possible!")
-
+  flash("Thank you for contacting with me;) I will reply your message as soon as possible!")
+  return 
+  
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
   if request.method == 'POST':
