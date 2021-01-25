@@ -5,7 +5,6 @@ import re
 app=Flask(__name__,template_folder='templates')
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
-app.run(debug = True)
 
 @app.route('/')
 def my_home():
