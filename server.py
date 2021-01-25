@@ -28,8 +28,7 @@ def write_to_csv(data):
   name = data["name"]
   if not re.fullmatch(r"[^@]+@[^@]+\.[^@]+", email):
     #flash("not a valid email")
-    message = request.args.get("msg")
-    return render_template("index.html", ,msg=message)
+    return
   with open('database.csv', newline='', mode='a') as database2:
     csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     csv_writer.writerow([email,message,name])
@@ -41,9 +40,12 @@ def submit_form():
     try:
       data = request.form.to_dict()
       write_to_csv(data)
-      
       #flash('You were successfully logged in')
-      return redirect(url_for('my_home'))
+
+      message = request.args.get("msg")
+      return render_template("index.html", ,msg=message)
+
+      #return redirect(url_for('my_home'))
       #return redirect('index.html')
     except:
       return render_template('index.html', error='did not save to database') 
