@@ -9,7 +9,6 @@ app.secret_key = 'xdsfslgmsjhotrjkjdfpsdkjfl2343thfhd'
 
 @app.route('/')
 def my_home():
-  session.pop('_flashes', None)
   return render_template('index.html')
 
 @app.route('/<string:page_name>')
@@ -41,7 +40,8 @@ def submit_form():
     try:
       data = request.form.to_dict()
       write_to_csv(data)
-      return redirect(url_for('my_home', _anchor="contact"))
+      return render_template(html_page('contact'))
+      #return redirect(url_for('my_home', _anchor="contact"))
     except:
       return 'did not save to database'
   else:
