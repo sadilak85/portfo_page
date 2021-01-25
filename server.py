@@ -20,7 +20,7 @@ def write_to_file(data):
   message = data["message"]
   name = data["name"]
   with open('database.txt', mode='a') as database:
-    file = database.write(f'\n{email},{message},{name}')
+    database.write(f'\n{email},{message},{name}')
 
 def write_to_csv(data):
   email = data["email"]
