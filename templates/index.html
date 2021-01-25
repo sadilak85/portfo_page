@@ -96,18 +96,16 @@
 										<li><input type="reset" value="Reset" /></li>
 									</ul>								
 								</form>
-								{% block content %}
-								<div class="container">
-									{% for message in get_flashed_messages() %}
-									<div class="alert alert-warning">
-										<button type="button" class="close" data-dismiss="alert">&times;</button>
-										{{ message }}
-									</div>
+								{% with messages = get_flashed_messages() %}
+								{% if messages %}
+									<ul class=flashes>
+									{% for message in messages %}
+									<li>{{ message }}</li>
 									{% endfor %}
-
-									{% block page_content %}{% endblock %}
-								</div>
-								{% endblock %}
+									</ul>
+								{% endif %}
+								{% endwith %}
+								{% block body %}{% endblock %}
 							</article>						
 					</div>	
 				<!-- Footer -->
