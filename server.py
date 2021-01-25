@@ -9,6 +9,7 @@ app.secret_key = 'xdsfslgmsjhotrjkjdfpsdkjfl2343thfhd'
 
 @app.route('/')
 def my_home():
+  session.pop('_flashes', None)
   return render_template('index.html')
 
 @app.route('/<string:page_name>')
