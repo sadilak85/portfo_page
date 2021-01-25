@@ -30,7 +30,6 @@ def write_to_csv(data):
     #flash("not a valid email")
     message = request.args.get("msg")
     return render_template("index.html", ,msg=message)
-    return
   with open('database.csv', newline='', mode='a') as database2:
     csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     csv_writer.writerow([email,message,name])
