@@ -34,7 +34,7 @@ def write_to_csv(data):
     csv_writer.writerow([email,message,name])
     #flash("ok halt")
 
-@app.route('/submit_form', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def submit_form():
   if request.method == 'POST':
     try:
