@@ -95,7 +95,11 @@
 										<li><input type="submit" value="Send Message" class="primary" /></li>
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
-									
+									{% extends "layout.html" %}
+									{% block body %}
+									  <h1>Overview</h1>
+									  <p>Do you want to log in?</a>
+									{% endblock %}									
 								</form>
 							</article>							
 					</div>	
