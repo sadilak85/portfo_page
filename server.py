@@ -40,7 +40,7 @@ def submit_form():
     try:
       data = request.form.to_dict()
       write_to_csv(data)
-      return render_template(html_page('contact'))
+      return render_template('index.html#contact')
       #return redirect(url_for('my_home', _anchor="contact"))
     except:
       return 'did not save to database'
