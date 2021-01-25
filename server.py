@@ -39,7 +39,7 @@ def submit_form():
         data = request.form.to_dict()
         if not write_to_csv(data):
           flash("not a valid email")
-        return redirect('index.html')
+        return "redirect('index.html')"
       except:
         return 'did not save to database'
     else:
