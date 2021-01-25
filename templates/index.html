@@ -95,11 +95,18 @@
 										<li><input type="submit" value="Send Message" class="primary" /></li>
 										<li><input type="reset" value="Reset" /></li>
 									</ul>
-									{% extends "layout.html" %}
-									{% block body %}
-									  <h1>Overview</h1>
-									  <p>Do you want to log in?</a>
-									{% endblock %}									
+									
+									{% with messages = get_flashed_messages() %}
+									  {% if messages %}
+										<ul class=flashes>
+										{% for message in messages %}
+										  <li>{{ message }}</li>
+										{% endfor %}
+										</ul>
+									  {% endif %}
+									{% endwith %}
+									{% block body %}{% endblock %}									
+									
 								</form>
 							</article>							
 					</div>	
