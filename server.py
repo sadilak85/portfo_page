@@ -41,7 +41,8 @@ def submit_form():
       data = request.form.to_dict()
       write_to_csv(data)
       flash('You were successfully logged in')
-      return redirect(url_for('my_home'))
+      #return redirect(url_for('my_home'))
+      return render_template('index.html', error='did not save to database') 
     except:
       return render_template('index.html', error='did not save to database') 
   else:
