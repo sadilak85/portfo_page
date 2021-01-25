@@ -44,9 +44,9 @@ def submit_form():
     try:
       data = request.form.to_dict()
       if write_to_csv(data):
-        return redirect(url_for('my_home', _anchor="contact"))
-      else:
         return redirect(url_for('my_home', _anchor="thanks"))
+      else:
+        return redirect(url_for('my_home', _anchor="contact"))
     except:
       return 'did not save to database'
   else:
