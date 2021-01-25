@@ -7,9 +7,26 @@ app = Flask(__name__)
 #app.secret_key = 'super secret key'
 #app.config['SESSION_TYPE'] = 'filesystem'
 
-@app.route('/')
+#@app.route('/')
+#def my_home():
+#  return render_template('index.html')
+
+
+@app.route('/', methods=['POST', 'GET'])
 def my_home():
   return render_template('index.html')
+def submit_form():
+  if request.method == 'POST':
+    try:
+      data = request.form.to_dict()
+      write_to_csv(data)
+      flash('You were successfully logged in')
+      return redirect(url_for('my_home'))
+    except:
+      return render_template('index.html', error='did not save to database') 
+  else:
+    return render_template('index.html', error='something went wrong. Try again!') 
+
 
 @app.route('/<string:page_name>')
 def html_page(page_name):
@@ -33,16 +50,3 @@ def write_to_csv(data):
     csv_writer = csv.writer(database2, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     csv_writer.writerow([email,message,name])
     #flash("ok halt")
-
-@app.route('/', methods=['POST', 'GET'])
-def submit_form():
-  if request.method == 'POST':
-    try:
-      data = request.form.to_dict()
-      write_to_csv(data)
-      flash('You were successfully logged in')
-      return redirect(url_for('my_home'))
-    except:
-      return render_template('index.html', error='did not save to database') 
-  else:
-    return render_template('index.html', error='something went wrong. Try again!') 
